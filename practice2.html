@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>JAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <div class="whole">
+      <div class="page1">
+        <p class="p1-desc">the</p>
+        <p class="intro">MOONLIT <span class="intro-hover">BLOOD</span> OATH</p>
+        <p class="p1-desc1">COMING SOON... (use desktop/laptop for better performance)</p>
+
+      </div>
+
+      
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("loaded");
+      });
+    </script>
+
+
+<script>
+    document.addEventListener("mousemove", (e) => {
+        let numSplashes = Math.floor(Math.random() * 6) + 10; // 10 to 15 splashes
+        for (let i = 0; i < numSplashes; i++) {
+            createSplash(e.clientX, e.clientY);
+        }
+    });
+
+    function createSplash(x, y) {
+        const splash = document.createElement("div");
+        splash.classList.add("blood-splash");
+
+        let size = Math.random() * 10 + 5; 
+        splash.style.width = `${size}px`;
+        splash.style.height = `${size}px`;
+
+        splash.style.left = `${x}px`;
+        splash.style.top = `${y}px`;
+
+        let xMove = (Math.random() - 0.5) * 150 + "px"; 
+        let yMove = Math.random() * 150 + "px"; 
+        let scale = Math.random() * 1.5 + 1; 
+
+        splash.style.setProperty("--x-move", xMove);
+        splash.style.setProperty("--y-move", yMove);
+        splash.style.setProperty("--scale", scale);
+
+        document.body.appendChild(splash);
+
+        setTimeout(() => {
+            splash.remove();
+        }, 1000);
+    }
+</script>
+
+
+
+
+  </body>
+</html>

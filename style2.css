@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Rubik+Glitch&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body, html {
+    background-color: #000;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    cursor: none;
+
+    
+}
+
+.whole, .page1, .page2, .p1-desc, .intro {
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+}
+
+body.loaded .whole, 
+body.loaded .page1, 
+body.loaded .page2, 
+body.loaded .p1-desc, 
+body.loaded .intro {
+    opacity: 10;
+}
+
+.whole {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.page1  {
+    min-height: 100vh;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.p1-desc {
+    color: #fff;
+    font-size: 1.5vw; 
+    font-weight: 300;
+    margin: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.p1-desc1 {
+    color: #fff;
+    font-family: 'Outfit';
+    font-size: 1vw; 
+    font-weight: 300;
+    margin: 0;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    position: absolute; 
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100%; 
+    text-align: center; 
+}
+
+
+.intro {
+    color: #fff;
+    font-size: 6vw; 
+    font-weight: 500;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes colorChange {
+    0% { color: initial; }
+    50% { color: #410000; }
+    100% { color: initial; }
+}
+
+.intro-hover {
+    font-size: 6vw; 
+    font-family: 'Rubik Glitch';
+    font-weight: 200;
+    margin: 0;
+    cursor: none;
+    animation: colorChange 0.1s infinite;
+}
+
+.blood-splash {
+    position: absolute;
+    background-color: #410000; /* Dark red for realistic blood */
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 1;
+    filter: blur(1px);
+    animation: splash 1.2s ease-out forwards;
+}
+
+@keyframes splash {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x-move), var(--y-move)) scale(var(--scale));
+    }
+}
+
+
+
+
+
+
+/*
+.page2 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+*/
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .intro, .intro-hover {
+        font-size: 9vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro, .intro-hover {
+        font-size: 10vw;
+    }
+    .p1-desc1{
+        font-size: 5vw;
+    }
+}
